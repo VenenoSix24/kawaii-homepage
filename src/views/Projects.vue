@@ -10,42 +10,41 @@
         </p>
       </div>
     </section>
-    
+
     <!-- 筛选导航部分 -->
     <section class="bg-white py-8 border-b">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-center gap-4">
-          <button 
-            v-for="category in categories" :key="category.value"
-            @click="activeCategory = category.value"
-            class="px-4 py-2 rounded-full text-sm transition-colors"
-            :class="activeCategory === category.value 
-              ? 'bg-primary-500 text-white' 
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
-          >
+          <button v-for="category in categories" :key="category.value" @click="activeCategory = category.value"
+            class="px-4 py-2 rounded-full text-sm transition-colors" :class="activeCategory === category.value
+              ? 'bg-primary-500 text-white'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'">
             {{ category.label }}
           </button>
         </div>
       </div>
     </section>
-    
+
     <!-- 项目列表部分 -->
     <section class="section bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div v-for="(project, index) in filteredProjects" :key="index"
-            class="card" data-aos="fade-up" :data-aos-delay="(index % 3) * 100">
-            <div class="h-48 bg-gray-200 overflow-hidden">
+          <div v-for="(project, index) in filteredProjects" :key="index" class="card" data-aos="fade-up"
+            :data-aos-delay="(index % 3) * 100">
+            <div class="h-48 overflow-hidden">
               <img v-if="project.image" :src="project.image" :alt="project.name" class="w-full h-full object-cover">
-              <div v-else class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
-                <i class="fas fa-code text-5xl text-primary-500"></i>
+              <div v-else
+                class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-300">
+                <div class="text-center">
+                  <i :class="getProjectIcon(project.category)" class="text-4xl text-primary-600 mb-2"></i>
+                  <div class="text-sm font-semibold text-primary-700">{{ project.name }}</div>
+                </div>
               </div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-4">
                 <h3 class="text-xl font-bold text-gray-800">{{ project.name }}</h3>
-                <span class="px-2 py-1 text-xs rounded-full" 
-                  :class="getCategoryClass(project.category)">
+                <span class="px-2 py-1 text-xs rounded-full" :class="getCategoryClass(project.category)">
                   {{ getCategoryLabel(project.category) }}
                 </span>
               </div>
@@ -65,7 +64,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- 没有结果时显示 -->
         <div v-if="filteredProjects.length === 0" class="text-center py-16">
           <i class="fas fa-search text-5xl text-gray-300 mb-4"></i>
@@ -89,10 +88,10 @@ export default {
       activeCategory: 'all',
       categories: [
         { label: '全部', value: 'all' },
-        { label: 'Web应用', value: 'web' },
-        { label: '小程序', value: 'miniprogram' },
-        { label: '工具库', value: 'library' },
-        { label: '其他', value: 'other' }
+        { label: 'Web开发', value: 'Web开发' },
+        { label: 'Web应用', value: 'Web应用' },
+        { label: '小程序', value: '小程序' },
+        { label: '工具类应用', value: '工具类应用' }
       ],
       projects: siteConfig.projects
     }
@@ -112,13 +111,22 @@ export default {
     },
     getCategoryClass(category) {
       switch (category) {
-        case 'web': return 'bg-primary-100 text-primary-700';
-        case 'miniprogram': return 'bg-green-100 text-green-700';
-        case 'library': return 'bg-blue-100 text-blue-700';
-        case 'other': return 'bg-gray-100 text-gray-700';
+        case 'Web开发': return 'bg-primary-100 text-primary-700';
+        case 'Web应用': return 'bg-green-100 text-green-700';
+        case '小程序': return 'bg-blue-100 text-blue-700';
+        case '工具类应用': return 'bg-yellow-100 text-yellow-700';
         default: return 'bg-gray-100 text-gray-700';
+      }
+    },
+    getProjectIcon(category) {
+      switch (category) {
+        case 'Web开发': return 'fas fa-globe';
+        case 'Web应用': return 'fas fa-window-maximize';
+        case '小程序': return 'fas fa-mobile-alt';
+        case '工具类应用': return 'fas fa-tools';
+        default: return 'fas fa-code';
       }
     }
   }
 }
-</script> 
+</script>

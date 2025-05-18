@@ -30,4 +30,4 @@ dist-ssr
 !.env.example 
 
 # config files
-# src/config/site.js
+src/config/site.example.js

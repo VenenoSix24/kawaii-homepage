@@ -84,7 +84,7 @@ const siteConfig = {
     {
       name: "个人博客系统",
       description: "基于Vue和Node.js开发的个人博客系统，支持Markdown编辑和自定义主题。",
-      image: "/src/assets/images/projects/blog.jpg",
+      image: "",
       category: "Web开发",
       technologies: ["Vue", "Node.js", "MongoDB", "Express"],
       github: "https://github.com/username/blog-system",
@@ -93,7 +93,7 @@ const siteConfig = {
     {
       name: "在线笔记应用",
       description: "一个简洁高效的在线笔记应用，支持实时保存和多设备同步功能。",
-      image: "/src/assets/images/projects/notes.jpg",
+      image: "",
       category: "Web应用",
       technologies: ["Vue", "Firebase", "Tailwind CSS"],
       github: "https://github.com/username/note-app",
@@ -102,20 +102,20 @@ const siteConfig = {
     {
       name: "天气预报小程序",
       description: "基于微信小程序开发的天气预报应用，提供精准的天气信息和温馨提示。",
-      image: "/src/assets/images/projects/weather.jpg",
+      image: "",
       category: "小程序",
       technologies: ["微信小程序", "JavaScript", "WXML", "WXSS"],
       github: "https://github.com/username/weather-app"
     },
-    {
-      name: "任务管理工具",
-      description: "一个简洁易用的任务管理工具，帮助用户高效管理日常任务和项目进度。",
-      image: "/src/assets/images/projects/task.jpg",
-      category: "工具类应用",
-      technologies: ["React", "Redux", "Node.js", "MongoDB"],
-      github: "https://github.com/username/task-manager",
-      demoUrl: "https://demo.example.com/tasks"
-    }
+    // {
+    //   name: "任务管理工具",
+    //   description: "一个简洁易用的任务管理工具，帮助用户高效管理日常任务和项目进度。",
+    //   image: "",
+    //   category: "工具类应用",
+    //   technologies: ["React", "Redux", "Node.js", "MongoDB"],
+    //   github: "https://github.com/username/task-manager",
+    //   demoUrl: "https://demo.example.com/tasks"
+    // }
   ],
 
   // 主题配置

@@ -130,18 +130,13 @@
 </template>
 
 <script>
+import siteConfig from '../config/site';
+
 export default {
   name: 'Contact',
   data() {
     return {
-      socialLinks: [
-        { name: '博客', url: 'https://blog.example.com', icon: 'fas fa-blog' },
-        { name: '哔哩哔哩', url: 'https://bilibili.com', icon: 'fab fa-bilibili' },
-        { name: '微博', url: 'https://weibo.com', icon: 'fab fa-weibo' },
-        { name: 'GitHub', url: 'https://github.com/', icon: 'fab fa-github' },
-        { name: 'Twitter', url: 'https://twitter.com/', icon: 'fab fa-twitter' },
-        { name: 'Telegram', url: 'https://t.me/', icon: 'fab fa-telegram' }
-      ],
+      socialLinks: siteConfig.socialLinks,
       form: {
         name: '',
         email: '',
