@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-800 font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-bold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-500 text-white hover:bg-secondary-600;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
+  }
+
+  /* 总之就是非常可爱按钮样式 */
+  .kawaii-btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300;
+    background: linear-gradient(to right, #ffb7c5, #d8aef2);
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+  }
+
+  .kawaii-btn:hover {
+    background: linear-gradient(to right, #ff9eb2, #c89ce0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 183, 197, 0.6);
+  }
+
+  .kawaii-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(255, 183, 197, 0.4);
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 text-gray-600 hover:text-primary-500 transition-colors duration-300;
+  }
+
+  .nav-link-active {
+    @apply text-primary-500 font-medium;
+  }
+
+  .social-icon {
+    @apply w-10 h-10 flex items-center justify-center rounded-full text-gray-600 hover:text-primary-500 hover:bg-primary-50 transition-all duration-300;
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
