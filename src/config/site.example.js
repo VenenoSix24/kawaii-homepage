@@ -3,16 +3,27 @@
  * 在这里集中管理网站的所有配置信息，修改此文件即可自定义网站内容
  */
 
+// 导入图片资源
+import logoImage from '../assets/images/logo.jpeg';
+import faviconImage from '../assets/images/favicon.ico';
+import kawaiiPoster from '../assets/images/kawaii/poster.webp';
+import kawaiiTsukasa from '../assets/images/kawaii/tsukasa.webp';
+import kawaiiNasa from '../assets/images/kawaii/nasa.webp';
+import kawaiiKaname from '../assets/images/kawaii/kaname.webp';
+import kawaiiScene1 from '../assets/images/kawaii/scene1.avif';
+import kawaiiScene2 from '../assets/images/kawaii/scene2.avif';
+import kawaiiScene3 from '../assets/images/kawaii/scene3.avif';
+
 const siteConfig = {
   // 基本信息
   site: {
-    title: "XXX", // 网站标题
+    title: "XXXX", // 网站标题
     description: "个人网站 / 技术博客 / 作品集", // 网站描述
-    author: "XXX", // 作者名称
+    author: "XXXX", // 作者名称
     email: "3xxxxxxxxx@qq.com", // 联系邮箱
     qq: "3xxxxxxxxx", // QQ号码
-    logo: "/src/assets/images/logo.jpeg", // Logo路径
-    favicon: "/src/assets/images/favicon.png", // 网站图标
+    logo: logoImage, // Logo路径
+    favicon: faviconImage, // 网站图标
     language: "zh-CN", // 网站默认语言
   },
 
@@ -123,7 +134,7 @@ const siteConfig = {
   // 《总之就是非常可爱》页面配置
   kawaii: {
     // 海报图片
-    poster: "/src/assets/images/kawaii/poster.webp", // 海报图片路径，需要将图片放在此路径
+    poster: kawaiiPoster, // 海报图片路径，需要将图片放在此路径
     // 动画信息
     animeInfo: {
       title: "总之就是非常可爱",
@@ -137,25 +148,25 @@ const siteConfig = {
     characters: [
       {
         name: "由崎 司",
-        image: "/src/assets/images/kawaii/tsukasa.webp",
+        image: kawaiiTsukasa,
         description: "女主角，美丽神秘的少女，星空一见钟情的女子。有着超越年龄的成熟和智慧，总之就是超级无敌非常可爱！"
       },
       {
         name: "由崎 星空",
-        image: "/src/assets/images/kawaii/nasa.webp", // 角色图片路径
+        image: kawaiiNasa, // 角色图片路径
         description: "男主角，天才少年，因与司结婚而获得新生。头脑聪明，但在感性方面与常人迥异。"
       },
       {
         name: "有栖川 要",
-        image: "/src/assets/images/kawaii/kaname.webp",
+        image: kawaiiKaname,
         description: "星空国中时的学妹，星空家附近的钱汤“草津温泉风汤布院”老板的女儿。"
       }
     ],
     // 精彩场景
     scenes: [
-      "/src/assets/images/kawaii/scene1.avif",
-      "/src/assets/images/kawaii/scene2.avif",
-      "/src/assets/images/kawaii/scene3.avif"
+      kawaiiScene1,
+      kawaiiScene2,
+      kawaiiScene3
     ]
   }
 };
