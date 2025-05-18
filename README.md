@@ -11,7 +11,7 @@
 
 一个美观、响应式的个人网站/博客，基于Vue3、Tailwind CSS和Vite构建。
 
-[🚀 Demo](https://kawaii.776624.xyz) | [📖 文档](#自定义网站内容) | [🐛 问题反馈](https://github.com/VenenoSix24/kawaii-homepage/issues)
+[🚀 Demo](https://kawaii.776624.xyz) | [📖 文档](https://github.com/VenenoSix24/kawaii-homepage/blob/main/README.md) | [🐛 问题反馈](https://github.com/VenenoSix24/kawaii-homepage/issues)
 
 ![网站预览](https://s2.loli.net/2025/05/17/usnaUKvDZ8k93FX.jpg)
 
@@ -20,8 +20,8 @@
 ## ✨ 功能特点
 
 - 🌈 **响应式设计** - 完美适配桌面端、平板和移动设备
-- 🌙 **深色/浅色模式** - 支持主题切换，保护您的眼睛
-- 📊 **GitHub项目展示** - 自动展示您的GitHub仓库
+- ~~🌙 **深色/浅色模式** - 支持主题切换，保护您的眼睛~~
+- 📊 **GitHub项目展示** - 手动展示您的GitHub仓库
 - 📝 **Markdown文章支持** - 使用Markdown轻松写作和发布文章
 - 🎭 **动漫主题页面** - 专为《总之就是非常可爱》粉丝设计的主题页面
 - 💬 **联系表单** - 方便访客与您取得联系
@@ -48,8 +48,8 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/homepage.git
-cd homepage
+https://github.com/VenenoSix24/kawaii-homepage.git
+cd kawaii-homepage
 
 # 安装依赖
 npm install
@@ -121,16 +121,15 @@ yarn build
 const siteConfig = {
   // 基本信息
   site: {
-    title: "您的网站标题",
-    description: "网站描述",
-    author: "您的名字",
-    email: "your.email@example.com",
+    title: "XXX", // 网站标题
+    description: "个人网站 / 技术博客 / 作品集", // 网站描述
+    author: "XXX", // 作者名称
+    email: "3xxxxxxxxx@qq.com", // 联系邮箱
+    qq: "3xxxxxxxxx", // QQ号码
+    logo: "/src/assets/images/logo.jpeg", // Logo路径
+    favicon: "/src/assets/images/favicon.png", // 网站图标
+    language: "zh-CN", // 网站默认语言
   },
-  // 社交媒体链接
-  socialLinks: [
-    { name: "GitHub", url: "https://github.com/yourusername", icon: "fab fa-github" },
-    // 添加或修改更多社交链接...
-  ],
   // 其他设置...
 };
 ```
@@ -176,7 +175,7 @@ const siteConfig = {
    ```md
    ---
    title: 文章标题
-   date: 2023-05-15
+   date: 2025-05-17
    author: 作者名
    category: 文章分类
    tags: ["标签1", "标签2"]
@@ -213,7 +212,7 @@ projects: [
 
 ### 自定义动漫（ 《总之就是非常可爱》 ）页面
 
-通过修改配置文件，您可以轻松更新《总之就是非常可爱》页面的内容：
+通过修改配置文件，您可以轻松更新动漫（ 《总之就是非常可爱》 ）页面的内容：
 
 1. 打开 `src/config/site.js` 文件
 2. 在 `kawaii` 部分配置以下内容：
