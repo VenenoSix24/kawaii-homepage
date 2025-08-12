@@ -56,8 +56,8 @@ const siteConfig = {
   // 首页精选项目
   featuredProjects: [
     {
-      name: "个人博客系统",
-      description: "一个美观、响应式的个人网站/博客，基于Vue3、Tailwind CSS和Vite构建",
+      name: "总之就是非常可爱",
+      description: "一个美观、响应式的个人网站主页//博客，基于Vue3、Tailwind CSS和Vite构建",
       github: "https://github.com/VenenoSix24/kawaii-homepage"
     },
     {
@@ -76,8 +76,8 @@ const siteConfig = {
   latestArticles: [
     {
       id: 1,
-      title: "总之就是非常可爱——个人网站/主页/博客",
-      summary: "本文介绍了总之就是非常可爱——个人网站，以及其配置部署方法。"
+      title: "总之就是非常可爱——个人站点",
+      summary: "本文介绍了总之就是非常可爱——个人网站/主页/博客，以及其配置部署方法。"
     },
     {
       id: 2,

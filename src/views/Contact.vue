@@ -29,7 +29,7 @@
                     <p class="text-sm text-gray-500 mb-1">邮箱</p>
                     <a href="mailto:3405395460@qq.com"
                       class="text-lg text-gray-800 hover:text-primary-500 transition-colors">
-                      3405395460@qq.com
+                      xxxxxxxx@qq.com
                     </a>
                   </div>
                 </li>
@@ -42,7 +42,7 @@
                     <p class="text-sm text-gray-500 mb-1">QQ</p>
                     <a href="tencent://message/?uin=3405395460"
                       class="text-lg text-gray-800 hover:text-primary-500 transition-colors">
-                      3405395460
+                      xxxxxxxx
                     </a>
                   </div>
                 </li>
