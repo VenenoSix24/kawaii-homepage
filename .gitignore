@@ -30,7 +30,7 @@ dist-ssr
 !.env.example 
 
 # config files
-src/config/site.js
+site.local.js
 
 # other
 PAT.txt
