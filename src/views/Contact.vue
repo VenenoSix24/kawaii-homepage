@@ -27,7 +27,7 @@
                   </div>
                   <div>
                     <p class="text-sm text-gray-500 mb-1">邮箱</p>
-                    <a href="mailto:3405395460@qq.com"
+                    <a href="mailto:xxxxxxxx@qq.com"
                       class="text-lg text-gray-800 hover:text-primary-500 transition-colors">
                       xxxxxxxx@qq.com
                     </a>
@@ -40,7 +40,7 @@
                   </div>
                   <div>
                     <p class="text-sm text-gray-500 mb-1">QQ</p>
-                    <a href="tencent://message/?uin=3405395460"
+                    <a href="tencent://message/?uin=xxxxxxxx"
                       class="text-lg text-gray-800 hover:text-primary-500 transition-colors">
                       xxxxxxxx
                     </a>
