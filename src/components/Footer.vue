@@ -49,6 +49,16 @@
 
       <div class="border-t border-gray-800 mt-10 pt-6 text-center text-sm">
         <p>&copy; {{ new Date().getFullYear() }} {{ siteConfig.site.title }}. 保留所有权利。</p>
+        
+        <!-- ICP备案信息 -->
+        <div v-if="siteConfig.site.icp" class="mt-3 flex justify-center items-center">
+          <a :href="siteConfig.site.icp.link" target="_blank" rel="noopener noreferrer" 
+             class="flex items-center hover:text-primary-300 transition-colors">
+            <img v-if="siteConfig.site.icp.showIcon" src="/images/icp-badge.png" alt="ICP备案" 
+                 class="h-5 mr-2" />
+            <span>{{ siteConfig.site.icp.number }}</span>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -66,3 +76,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+</style>

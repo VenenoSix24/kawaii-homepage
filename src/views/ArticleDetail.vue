@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-50 min-h-screen">
     <div v-if="article" class="container mx-auto px-4 py-12">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-5xl mx-auto">
         <!-- 文章头部 -->
         <div class="bg-white rounded-t-xl p-8 shadow-sm w-full" data-aos="fade-up">
           <div class="flex items-center mb-4 text-sm text-gray-500">
@@ -32,9 +32,9 @@
         </div>
 
         <!-- 文章内容 -->
-        <div class="bg-white rounded-b-xl p-8 shadow-sm prose prose-lg max-w-none" data-aos="fade-up"
+        <div class="bg-white rounded-b-xl p-8 shadow-sm" data-aos="fade-up"
           data-aos-delay="100">
-          <div v-html="renderedContent"></div>
+          <div class="prose prose-lg max-w-none" v-html="renderedContent"></div>
         </div>
 
         <!-- 导航按钮 -->
@@ -71,7 +71,6 @@
 <script>
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { marked } from 'marked';
 import { getArticleList, getArticleBySlug, formatDate } from '../utils/markdown';
 
 export default {
@@ -80,71 +79,44 @@ export default {
     const route = useRoute();
     const router = useRouter();
     const article = ref(null);
-    const articleList = ref([]);
     const renderedContent = ref('');
+    
+    // 用于“上一篇/下一篇”导航
+    const allArticlesList = ref([]); 
+    const currentIndex = ref(-1);
 
-    const loadArticles = async () => {
-      const { articleList: list } = await getArticleList();
-      articleList.value = list.value;
-      await loadArticle();
-    };
+    const loadArticleData = async () => {
+      article.value = null; // 重置
+      const slug = route.params.id;
+      const foundArticle = await getArticleBySlug(slug);
 
-    const loadArticle = async () => {
-      const id = route.params.id;
-
-      // 首先检查是否是数字ID
-      if (!isNaN(parseInt(id))) {
-        const numericId = parseInt(id);
-        const foundArticle = articleList.value.find(a => a.id === numericId);
-
-        if (foundArticle) {
-          article.value = foundArticle;
-          renderedContent.value = marked(foundArticle.content || '');
-        }
+      if (foundArticle) {
+        article.value = foundArticle;
+        renderedContent.value = foundArticle.renderedContent;
+        
+        // 更新当前文章在列表中的索引
+        currentIndex.value = allArticlesList.value.findIndex(a => a.slug === slug);
       } else {
-        // 尝试加载Markdown文件
-        const markdownArticle = await getArticleBySlug(id);
-
-        if (markdownArticle) {
-          article.value = {
-            ...markdownArticle.frontMatter,
-            slug: markdownArticle.slug,
-            content: markdownArticle.content
-          };
-          renderedContent.value = markdownArticle.renderedContent;
-        }
-      }
-
-      // 如果找不到文章，重定向到文章列表页
-      if (!article.value) {
         router.push('/articles');
       }
     };
 
-    const currentIndex = computed(() => {
-      if (!article.value) return -1;
-
-      if (article.value.id) {
-        return articleList.value.findIndex(a => a.id === article.value.id);
-      } else if (article.value.slug) {
-        return articleList.value.findIndex(a => a.slug === article.value.slug);
-      }
-
-      return -1;
-    });
-
     const prevArticle = computed(() => {
-      if (currentIndex.value <= 0) return null;
-      return articleList.value[currentIndex.value - 1];
+      if (currentIndex.value > 0) {
+        return allArticlesList.value[currentIndex.value - 1];
+      }
+      return null;
     });
 
     const nextArticle = computed(() => {
-      if (currentIndex.value === -1 || currentIndex.value === articleList.value.length - 1) return null;
-      return articleList.value[currentIndex.value + 1];
+      if (currentIndex.value > -1 && currentIndex.value < allArticlesList.value.length - 1) {
+        return allArticlesList.value[currentIndex.value + 1];
+      }
+      return null;
     });
-
-    const navigateToArticle = (id) => {
-      router.push(`/article/${id}`);
+    
+    const navigateToArticle = (slug) => {
+      router.push(`/article/${slug}`);
     };
 
     const formatArticleDate = (dateString) => {
@@ -152,10 +124,14 @@ export default {
     };
 
     // 监听路由参数变化，重新加载文章
-    watch(() => route.params.id, loadArticle);
+    watch(() => route.params.id, loadArticleData);
 
-    onMounted(() => {
-      loadArticles();
+    onMounted(async () => {
+      // 先加载完整的文章列表用于导航，但不显示
+      const { articleList: list } = await getArticleList();
+      allArticlesList.value = list.value;
+      // 然后加载当前需要的文章详情
+      await loadArticleData();
     });
 
     return {

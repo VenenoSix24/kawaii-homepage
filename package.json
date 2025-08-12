@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "new": "node scripts/new-post.js"
   },
   "keywords": [
     "personal",
@@ -17,14 +18,16 @@
   "author": "VenenoSix24",
   "license": "MIT",
   "dependencies": {
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4",
+    "aos": "^2.3.4",
     "marked": "^9.0.0",
-    "aos": "^2.3.4"
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
+    "pinyin": "^4.0.0",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.9"

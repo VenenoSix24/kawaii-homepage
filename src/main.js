@@ -6,7 +6,7 @@ import AOS from 'aos';
 
 // 初始化AOS动画库
 AOS.init({
-  duration: 800,
+  duration: 600,
   easing: 'ease-in-out',
   once: true
 });

@@ -108,17 +108,16 @@ export default {
   setup() {
     const searchQuery = ref('');
     const articleList = ref([]);
-    const articlesCache = ref({});
     const loading = ref(true);
 
     const fetchArticles = async () => {
       loading.value = true;
       try {
-        const { articleList: list, articlesCache: cache } = await getArticleList();
+        // 只需要获取 articleList 即可
+        const { articleList: list } = await getArticleList();
         articleList.value = list.value;
-        articlesCache.value = cache.value;
       } catch (error) {
-        console.error('加载文章失败:', error);
+        console.error('加载文章列表失败:', error);
       } finally {
         loading.value = false;
       }
