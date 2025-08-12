@@ -18,6 +18,7 @@
   "author": "VenenoSix24",
   "license": "MIT",
   "dependencies": {
+    "@vueuse/core": "^13.6.0",
     "aos": "^2.3.4",
     "marked": "^9.0.0",
     "vue": "^3.3.4",
@@ -29,6 +30,7 @@
     "autoprefixer": "^10.4.14",
     "pinyin": "^4.0.0",
     "postcss": "^8.4.27",
+    "rollup-plugin-visualizer": "^6.0.3",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.9"
   }

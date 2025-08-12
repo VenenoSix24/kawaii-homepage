@@ -11,13 +11,15 @@
     @apply bg-gray-50 text-gray-800 font-sans;
   }
 
+  /* --- 修改点 1：强化字体对比 --- */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-serif font-bold;
+    /* 使用更深的灰色，并增加一点字间距，让标题更醒目 */
+    @apply font-serif font-bold text-gray-900 tracking-wide;
   }
 }
 
@@ -60,8 +62,10 @@
     box-shadow: 0 2px 6px rgba(255, 183, 197, 0.4);
   }
 
+  /* --- 修改点 2：丰富悬停效果 --- */
   .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+    /* 增加了 hover:shadow-xl 和 hover:-translate-y-1 来实现上浮效果 */
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }
 
   .section {

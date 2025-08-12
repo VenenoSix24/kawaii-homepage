@@ -33,6 +33,9 @@ dist-ssr
 src/config/site.js
 
 # other
+PAT.txt
+test copy.md
+
 
 
 ### macOS ###

@@ -1,14 +1,14 @@
 ---
-title: README
-date: 2025-05-17
+title: 总之就是非常可爱——个人网站/主页/博客
+date: 2025-08-12
 author: VenenoSix24
-category: 前端开发
-tags: ["Vue3", "JavaScript", "Composition API"]
+category: 日常
+tags: ["Vue3", "Homepage", "Github"]
 cover: https://vuejs.org/images/components.png
 summary: 本文介绍了个人网页项目。
 ---
 
-# 个人网站/博客项目
+# 总之就是非常可爱——个人网站/主页/博客
 
 <div align="center">
 
@@ -19,9 +19,9 @@ summary: 本文介绍了个人网页项目。
 <a href="https://marked.js.org/"><img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown"></a>
 </p>
 
-一个美观、响应式的个人网站/博客，基于 Vue3、Tailwind CSS 和 Vite 构建。
+一个美观、响应式的个人网站/主页/博客，基于 Vue3、Tailwind CSS 和 Vite 构建，融入动漫《总之就是非常可爱》元素。
 
-[🚀 Demo](https://your-demo-url.com) | [📖 文档](#自定义网站内容) | [🐛 问题反馈](https://github.com/yourusername/homepage/issues)
+[🚀 Demo](https://kawaii.776624.xyz) | [📖 文档](https://github.com/VenenoSix24/kawaii-homepage/blob/main/README.md) | [🐛 问题反馈](https://github.com/VenenoSix24/kawaii-homepage/issues)
 
 ![网站预览](https://s2.loli.net/2025/05/17/usnaUKvDZ8k93FX.jpg)
 
@@ -30,19 +30,25 @@ summary: 本文介绍了个人网页项目。
 ## ✨ 功能特点
 
 - 🌈 **响应式设计** - 完美适配桌面端、平板和移动设备
-- 🌙 **深色/浅色模式** - 支持主题切换，保护您的眼睛
-- 📊 **GitHub 项目展示** - 自动展示您的 GitHub 仓库
-- 📝 **Markdown 文章支持** - 使用 Markdown 轻松写作和发布文章
-- 🎭 **动漫主题页面** - 专为《总之就是非常可爱》粉丝设计的主题页面
-- 💬 **联系表单** - 方便访客与您取得联系
+- 📊 **GitHub 项目自动同步** - 自动抓取并展示您 GitHub 上固定的(Pinned)仓库
+- 📝 **自动化文章管理** - 无需手动配置，文章即加即用
+- 🚀 **交互式文章创建** - 通过 `npm run new` 命令轻松创建新文章
+- 🔍 **文章分类与标签过滤** - 在文章列表页提供内容筛选功能
+- 💅 **优美的排版与交互** - 集成 `@tailwindcss/typography` 插件并优化了 UI 细节
+- 🎭 **动漫主题页面** - 为《总之就是非常可爱》设计的主题页面
 - 🏃‍♂️ **流畅动画** - 平滑的页面过渡和滚动动画
+- 📈 **打包分析** - 集成 `rollup-plugin-visualizer` 以分析构建产物
+- ~~🌙 **深色/浅色模式** - 支持主题切换，保护您的眼睛~~
+- ~~💬 **联系表单** - 方便访客与您取得联系~~
 
 ## 🛠️ 技术栈
 
 - **前端框架**: [Vue 3](https://v3.vuejs.org/) (Composition API)
 - **路由管理**: [Vue Router 4](https://router.vuejs.org/)
 - **CSS 框架**: [Tailwind CSS](https://tailwindcss.com/)
+- **排版**: [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)
 - **构建工具**: [Vite](https://vitejs.dev/)
+- **打包分析**: [rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer)
 - **图标库**: [Font Awesome](https://fontawesome.com/)
 - **动画库**: [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
 - **Markdown 解析**: [Marked](https://marked.js.org/)
@@ -51,249 +57,166 @@ summary: 本文介绍了个人网页项目。
 
 ### 前提条件
 
-- Node.js (v14.0.0 或更高版本)
+- Node.js (v16.0.0 或更高版本)
 - npm 或 yarn
 
 ### 克隆和安装
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/homepage.git
-cd homepage
+git clone [https://github.com/VenenoSix24/kawaii-homepage.git](https://github.com/VenenoSix24/kawaii-homepage.git)
+cd kawaii-homepage
 
 # 安装依赖
 npm install
-# 或
-yarn
 ```
 
-### 开发模式
+在开始开发前，请务必先完成下面的 **“配置 GitHub 项目自动同步”** 步骤。
+
+### 本地开发
+
+**Bash**
 
 ```bash
 npm run dev
-# 或
-yarn dev
 ```
 
-访问 `http://localhost:3000` 查看您的网站。
+访问 `http://localhost:3000` (或终端提示的端口) 查看您的网站。
 
-### 构建生产版本
+### 创建一篇新文章
+
+只需在终端运行：
+
+```bash
+npm run new
+```
+
+脚本会交互式地提示您输入文章标题，然后自动在 `src/md/` 目录下创建带有预设元数据模板的 Markdown 文件。
+
+### 构建与分析
 
 ```bash
 npm run build
-# 或
-yarn build
 ```
 
-构建完成后，`dist` 目录中的文件即可部署。
+该命令会执行生产环境的构建，并自动在浏览器中打开一个名为 `stats.html` 的打包分析报告，让您能清晰地看到项目中各个模块的体积。构建完成后，`dist` 目录中的文件即可部署。
 
 ## 🔄 项目结构
 
 ```
 /
-├── public/             # 静态资源
-│   └── md/             # Markdown文章
+├── dist/                 # 构建输出目录
+├── public/               # 静态资源 (不会被打包处理)
+├── scripts/              # 自动化脚本
+│   └── new-post.js       # 创建新文章的脚本
 ├── src/
-│   ├── assets/         # 样式和资源文件
-│   │   ├── css/        # CSS文件
-│   │   └── images/     # 图片资源
-│   ├── components/     # Vue组件
-│   ├── router/         # 路由配置
-│   ├── utils/          # 工具函数
-│   ├── views/          # 页面视图组件
-│   ├── App.vue         # 根组件
-│   └── main.js         # 入口文件
-├── index.html          # HTML模板
-├── package.json        # 项目依赖
-├── vite.config.js      # Vite配置
-├── tailwind.config.js  # Tailwind CSS配置
-└── README.md           # 项目说明
+│   ├── assets/           # 样式和资源文件
+│   ├── components/       # Vue组件
+│   ├── md/               # Markdown文章源文件目录
+│   ├── router/           # 路由配置
+│   ├── utils/            # 工具函数 (Markdown处理)
+│   ├── views/            # 页面视图组件
+│   └── ...
+├── package.json          # 项目依赖和脚本
+└── ...
 ```
 
 ## 🎨 自定义网站内容
 
-### 基本信息配置
+### 1. 配置 GitHub 项目自动同步（重要）
 
-您可以在以下文件中修改个人信息和网站内容：
+本项目的“作品集”页面是动态的，它会自动拉取并展示您在 GitHub 上固定的(Pinned)仓库。要使其正常工作，您需要进行如下配置：
 
-1. **修改个人信息和首页内容**：
+**a. 创建 GitHub 个人访问令牌 (PAT)**
 
-   - 编辑 `src/views/Home.vue` 文件
-   - 更新个人介绍、技能、项目和社交媒体链接等信息
+- 前往 GitHub 的 `Settings` > `Developer settings` > `Personal access tokens` > `Tokens (classic)`。
+- 生成一个新令牌，**权限 (scopes) 只勾选 `public_repo`** 即可。
+- **请务必复制并妥善保管生成的令牌** ，因为它只会出现一次。
 
-2. **更新导航栏和页脚**：
+**b. 创建本地环境变量文件**
 
-   - 在 `src/components/Navbar.vue` 中修改导航菜单
-   - 在 `src/components/Footer.vue` 中更新页脚信息和社交媒体链接
+- 在项目根目录下，创建一个名为 `.env.local` 的文件。
+- 在文件中添加以下内容，并填入你的信息：
+  **代码段**
 
-3. **更改网站主题颜色**：
+  ```
+  # .env.local
+  VITE_GITHUB_USERNAME="你的GitHub用户名"
+  VITE_GITHUB_TOKEN="粘贴你刚刚生成的ghp_开头的令牌"
+  ```
 
-   - 编辑 `tailwind.config.js` 文件中的颜色配置
+- `.env.local` 文件已被添加到 `.gitignore`，不会被上传到代码仓库，保证了令牌的安全。
 
-   ```js
-   theme: {
-     extend: {
-       colors: {
-         primary: { /* 主题色 */ },
-         secondary: { /* 次要色 */ },
-         kawaii: { /* 动漫主题色 */ }
-       }
-     }
-   }
-   ```
+**c. 配置 `site.js`**
 
-### 添加和管理文章
+- 打开 `src/config/site.js` 文件，找到 `site` 对象，并确保 `githubUsername` 字段已正确填写你的 GitHub 用户名。
+- 如果没有 `src/config/site.js` 文件，请将 `src/config/site.example.js` 重命名为 `site.js` 。
 
-项目支持两种方式管理文章内容：
+完成以上步骤并重启开发服务器后，你的作品集页面就会自动显示你的 GitHub Pinned 项目了。
 
-#### 方法 1：使用 Markdown 文件（推荐）
+### 2. 添加和管理文章
 
-1. 在 `public/md/` 目录下创建 Markdown 文件，如 `my-article.md`
-2. 添加文章前置元数据（必须包含以下格式）：
+流程已完全自动化：
 
-   ```md
-   ---
-   title: 文章标题
-   date: 2023-05-15
-   author: 作者名
-   category: 文章分类
-   tags: ["标签1", "标签2"]
-   cover: 封面图片URL（可选）
-   summary: 文章摘要
-   ---
+1. **创建文章** : 在终端运行 `npm run new` 并根据提示输入标题。
+2. **编写内容** : 打开 `src/md/` 目录下新生成的文件，补充 `category`, `tags` 等元数据，然后开始撰写正文。
 
-   正文内容...
-   ```
+网站会自动发现并展示你的新文章，无需任何额外配置。
 
-3. 文章会自动显示在文章列表页面
+### 3. 修改网站其他信息
 
-#### 方法 2：直接在代码中添加
+大部分网站内容都可以在中央配置文件 `src/config/site.js` 中管理，包括：
 
-1. 打开 `src/utils/markdown.js` 文件
-2. 在 `hardcodedArticles` 数组中添加新的文章对象
+- 网站标题、作者、联系方式等
+- 社交媒体链接
+- 导航菜单项
+- **首页展示的精选项目** (注意：这里是手动配置的，与作品集页面的自动同步不同)
+- 《总之就是非常可爱》页面的所有内容
 
-### 添加和更新项目
+### 4. 修改主题颜色与字体
 
-修改 `src/views/Projects.vue` 文件中的 `projects` 数组：
+所有设计系统的核心定义都在 `tailwind.config.js` 文件中。你可以在此文件中：
 
-```js
-projects: [
-  {
-    name: "项目名称",
-    description: "项目描述",
-    image: "项目图片URL（可选）",
-    category: "项目分类",
-    technologies: ["技术1", "技术2"],
-    github: "GitHub仓库URL",
-  },
-  // 添加更多项目...
-];
-```
-
-### 自定义动漫《总之就是非常可爱》页面
-
-编辑 `src/views/Kawaii.vue` 文件，更新图片、内容和排版。
+- 修改 `theme.extend.colors` 中的 `primary`, `secondary` 等颜色值。
+- 修改 `theme.extend.fontFamily` 来更换网站的全局字体。
 
 ## 🚀 部署指南
 
-### 部署到服务器
+该项目可以轻松部署到任何支持静态网站的平台，如 Vercel, Netlify, GitHub Pages 或 您自己的服务器。
 
-1. 构建生产版本
+#### **通用部署步骤**
 
-   ```bash
-   npm run build
-   ```
+1. 运行 `npm run build` 构建项目。
+2. 将生成的 `dist` 目录上传到您的托管平台。
+3. 确保您的服务器配置能正确处理单页应用（SPA）的路由，通常需要将所有未匹配的路径重定向到 `index.html`。
 
-2. 将 `dist` 目录中的文件上传到您的服务器
+#### **通过 Vercel 手动部署**
 
-   ```bash
-   # 使用rsync示例（需要安装rsync）
-   rsync -avz --delete dist/ username@your-server:/path/to/html/
-   ```
-
-3. 配置服务器
-
-   - 对于 Nginx：
-
-     ```nginx
-     server {
-         listen 80;
-         server_name yourdomain.com;
-         root /path/to/html;
-         index index.html;
-
-         location / {
-             try_files $uri $uri/ /index.html;
-         }
-     }
-     ```
-
-   - 对于 Apache，确保启用了 mod_rewrite 并在根目录创建 `.htaccess` 文件：
-     ```apache
-     <IfModule mod_rewrite.c>
-       RewriteEngine On
-       RewriteBase /
-       RewriteRule ^index\.html$ - [L]
-       RewriteCond %{REQUEST_FILENAME} !-f
-       RewriteCond %{REQUEST_FILENAME} !-d
-       RewriteRule . /index.html [L]
-     </IfModule>
-     ```
-
-### 部署到 Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Fhomepage)
-
-通过 Vercel 仪表板部署是最简单的方法：
-
-1. 点击上方的"Deploy with Vercel"按钮，或在[Vercel 仪表板](https://vercel.com/dashboard)中导入您的 GitHub 仓库
-2. Vercel 会自动识别 Vue 项目并配置正确的构建设置
-3. 点击"Deploy"按钮后，您的网站将自动部署并生成一个可访问的 URL
-4. 您可以在 Vercel 仪表板中自定义域名、环境变量和其他设置
-
-手动部署方法：
-
-1. 首先 Fork 本仓库到您的 GitHub 账号
-2. 访问[Vercel 官网](https://vercel.com)并使用 GitHub 账号登录
-3. 在 Vercel 仪表板中点击"Add New..."，然后选择"Project"
-4. 从列表中选择您 fork 的仓库
-5. Vercel 会自动检测项目类型并预设构建配置，您可以根据需要进行调整
-6. 点击"Deploy"按钮完成部署
-7. 部署完成后，Vercel 会生成一个可访问的 URL，您也可以添加自定义域名
-
-每次向仓库推送更改时，Vercel 会自动重新部署您的网站。
-
-### 部署到其他平台
-
-该项目也可以部署到其他静态托管平台，如 GitHub Pages、Netlify、Firebase Hosting 等，具体部署方法请参考各平台文档。
-
-## 🧩 进阶定制
-
-### 添加新页面
-
-1. 在 `src/views/` 目录下创建新的 Vue 组件
-2. 在 `src/router/index.js` 中添加新的路由配置
-3. 在导航栏 `src/components/Navbar.vue` 中添加对应链接
-
-### 集成第三方服务
-
-- **集成评论系统**：可添加 Disqus、Gitalk 等第三方评论系统
-- **分析服务**：集成 Google Analytics 或百度统计
-- **表单提交**：使用 Formspree 或 Netlify Forms 处理联系表单
-
-## 📄 许可证
-
-[MIT](LICENSE)
+1. **首先 Fork 本仓库到你的账号**
+2. **登录 Vercel 并创建项目**：
+   - 使用您的 GitHub 账户登录 [Vercel](https://vercel.com)。
+   - 在个人 Dashboard 页面，点击 “**Add New...**” -> “**Project**”。
+3. **导入 Git 仓库**：
+   - 在 “Import Git Repository” 列表中，选择您 Fork 的项目仓库，点击 “**Import**”。
+4. **配置项目**：
+   - **Framework Preset**：Vercel 将自动识别为 `Vite` 并完成预设，无需修改。
+   - **Build and Output Settings**：构建与输出目录设置将自动填充，确认无误即可。
+   - **Environment Variables (环境变量)**：此项为必需配置。请展开此部分，并添加以下两个环境变量：
+     - **`VITE_GITHUB_USERNAME`**: 您的 GitHub 用户名。
+     - **`VITE_GITHUB_TOKEN`**: 您创建的、拥有 `public_repo` 权限的个人访问令牌 (Personal Access Token)。
+5. **执行部署**：
+   - 点击 “**Deploy**” 按钮，Vercel 将自动执行 `npm install` 和 `npm run build` 命令。
+   - 部署成功后，Vercel 将提供一个 `.vercel.app` 的公开访问域名或者自定义你的个人域名。
+   - 后续任何向 `main` 分支的推送，都将自动触发 Vercel 的重新部署。
 
 ## 🙏 鸣谢
 
 - [Vue.js 团队](https://vuejs.org/)
 - [Tailwind CSS 团队](https://tailwindcss.com/)
 - [开源社区](https://github.com/)
-- 以及所有提供支持和反馈的用户
 
 ---
 
 <div align="center">
-Made with ❤️ by <a href="https://github.com/yourusername">Your Name</a>
+Made with ❤️ by <a href="https://github.com/VenenoSix24">VenenoSix24</a>
 </div>

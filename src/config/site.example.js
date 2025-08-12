@@ -22,9 +22,16 @@ const siteConfig = {
     author: "XXXX", // 作者名称
     email: "3xxxxxxxxx@qq.com", // 联系邮箱
     qq: "3xxxxxxxxx", // QQ号码
+    githubUsername: "XXXXXX", // GitHub用户名
     logo: logoImage, // Logo路径
     favicon: faviconImage, // 网站图标
     language: "zh-CN", // 网站默认语言
+    // ICP备案信息
+    icp: {
+      number: "X公网安备xxxxxxx号", // 请替换为您的实际ICP备案号
+      link: "https://beian.mps.gov.cn/#/query/webSearch?code=xxxxxxxxxx", // 工信部备案管理系统链接
+      showIcon: true // 是否显示备案图标
+    },
   },
 
   // 社交媒体链接
@@ -79,44 +86,6 @@ const siteConfig = {
     }
   ],
 
-  // 项目页面展示的项目列表
-  projects: [
-    {
-      name: "个人博客系统",
-      description: "基于Vue和Node.js开发的个人博客系统，支持Markdown编辑和自定义主题。",
-      image: "/src/assets/images/projects/blog.jpg",
-      category: "Web开发",
-      technologies: ["Vue", "Node.js", "MongoDB", "Express"],
-      github: "https://github.com/username/blog-system",
-      demoUrl: "https://demo.example.com/blog"
-    },
-    {
-      name: "在线笔记应用",
-      description: "一个简洁高效的在线笔记应用，支持实时保存和多设备同步功能。",
-      image: "/src/assets/images/projects/notes.jpg",
-      category: "Web应用",
-      technologies: ["Vue", "Firebase", "Tailwind CSS"],
-      github: "https://github.com/username/note-app",
-      demoUrl: "https://demo.example.com/notes"
-    },
-    {
-      name: "天气预报小程序",
-      description: "基于微信小程序开发的天气预报应用，提供精准的天气信息和温馨提示。",
-      image: "/src/assets/images/projects/weather.jpg",
-      category: "小程序",
-      technologies: ["微信小程序", "JavaScript", "WXML", "WXSS"],
-      github: "https://github.com/username/weather-app"
-    },
-    {
-      name: "任务管理工具",
-      description: "一个简洁易用的任务管理工具，帮助用户高效管理日常任务和项目进度。",
-      image: "/src/assets/images/projects/task.jpg",
-      category: "工具类应用",
-      technologies: ["React", "Redux", "Node.js", "MongoDB"],
-      github: "https://github.com/username/task-manager",
-      demoUrl: "https://demo.example.com/tasks"
-    }
-  ],
 
   // 主题配置
   theme: {
