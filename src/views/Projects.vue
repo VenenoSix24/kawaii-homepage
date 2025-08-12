@@ -59,7 +59,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import siteConfig from '../config/site';
+import siteConfig from '../config/site.js';
 
 const GITHUB_USERNAME = siteConfig.site.githubUsername;
 // 从环境变量中安全地读取令牌

@@ -50,7 +50,7 @@
 <script>
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import siteConfig from '../config/site';
+import siteConfig from '../config/site.js';
 
 export default {
   name: 'Navbar',
