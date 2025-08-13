@@ -72,15 +72,33 @@ const siteConfig = {
     }
   ],
 
+  // --- 作品集页面配置 ---
+  projectsPage: {
+    // 在这里切换模式:
+    // 'hybrid': GitHub Pinned 项目 + 下方的自定义项目列表
+    // 'custom': 只显示下方自定义项目列表中的项目
+    mode: 'hybrid', // 您可以在 'hybrid' 和 'custom' 之间切换
+
+    // 自定义项目列表
+    // 在 'hybrid' 模式下，它们会补充在 GitHub 项目之后
+    // 在 'custom' 模式下，它们是唯一显示的项目
+    customProjects: [
+      { repo: "sindresorhus/awesome" },
+      { repo: "vinta/awesome-python" },
+      // 您可以在这里添加任何想补充的公开仓库
+    ]
+  },
+
+
   // 首页展示的最新文章
   latestArticles: [
     {
-      id: 1,
+      id: "test", // 建议使用文件名作为id，以保证能正确跳转
       title: "总之就是非常可爱——个人站点",
       summary: "本文介绍了总之就是非常可爱——个人网站/主页/博客，以及其配置部署方法。"
     },
     {
-      id: 2,
+      id: "vue3-composition-api", // 建议使用文件名作为id
       title: "Vue3 Composition API完全指南",
       summary: "本文深入探讨 Vue3 的 Composition API，从基础概念到高级应用，帮助你全面掌握这一强大特性。"
     }

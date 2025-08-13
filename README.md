@@ -143,7 +143,29 @@ npm run build
 
 完成以上步骤并重启开发服务器后，你的作品集页面就会自动显示你的 GitHub Pinned 项目了。
 
-### 2. 添加和管理文章
+### 2. 作品集页面配置
+
+在 `src/config/site.js` 中找到 `projectsPage` 进行修改
+
+**两种模式：**
+
+*  `hybrid` : 显示 GitHub Pinned 项目 + 下方的自定义项目列表
+*  `custom` : 只显示下方自定义项目列表中的项目
+
+**自定义项目列表：**
+
+```
+customProjects: [
+  { repo: "VenenoSix24/kawaii-homepage" },
+  { repo: "XXXXXXXX/xxxxxx" },
+  // 您可以在这里添加任何想补充的公开仓库
+  // 格式为: "作者名/仓库名"
+]
+```
+
+
+
+### 3. 添加和管理文章
 
 流程已完全自动化：
 
@@ -152,7 +174,7 @@ npm run build
 
 网站会自动发现并展示你的新文章，无需任何额外配置。
 
-### 3. 修改网站其他信息
+### 4. 修改网站其他信息
 
 大部分网站内容都可以在中央配置文件 `src/config/site.js` 中管理，包括：
 
@@ -162,7 +184,7 @@ npm run build
 * **首页展示的精选项目** (注意：这里是手动配置的，与作品集页面的自动同步不同)
 * 《总之就是非常可爱》页面的所有内容
 
-### 4. 修改主题颜色与字体
+### 5. 修改主题颜色与字体
 
 所有设计系统的核心定义都在 `tailwind.config.js` 文件中。你可以在此文件中：
 
@@ -178,6 +200,47 @@ npm run build
 1. 运行 `npm run build` 构建项目。
 2. 将生成的 `dist` 目录上传到您的托管平台。
 3. 确保您的服务器配置能正确处理单页应用（SPA）的路由，通常需要将所有未匹配的路径重定向到 `index.html`。
+
+#### 自行部署服务器配置（URL 重写规则）
+
+若您将 `dist` 目录部署到自己的 Nginx 或 Apache 服务器，为确保 Vue Router 的 `history` 模式能正常工作（即在任意页面刷新时不会 404），您需要添加 URL 重写规则。
+
+**对于 Vercel 等托管平台:**
+
+项目根目录已内置 `vercel.json` ，直接部署即可，其他托管平台请自行参考。
+
+**对于 Nginx:**
+
+在您的站点配置文件中，向 `location /` 块添加 `try_files` 指令：
+
+```nginx
+server {
+    # ... 其他配置 ...
+    root /path/to/your/project/dist;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+```
+
+修改配置后，请重新加载 Nginx 服务。
+
+**对于 Apache:**
+
+在 `dist` 目录中（与 `index.html` 同级）创建一个名为 `.htaccess` 的文件，并添加以下内容：
+
+Apache
+
+```
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
 
 #### **通过 Vercel 手动部署**
 

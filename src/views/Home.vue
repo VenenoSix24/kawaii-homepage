@@ -1,10 +1,8 @@
 <template>
   <div>
-    <!-- Hero 部分 - 修改为铺满整个视口，内容位置调整 -->
     <section class="bg-gradient-to-br from-primary-50 to-secondary-50 min-h-screen flex items-start pt-24 md:pt-40">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center">
-          <!-- 左侧文字部分 -->
           <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">
               你好，我是 <span class="text-primary-600">VenenoSix24</span>
@@ -27,14 +25,12 @@
             </div>
           </div>
 
-          <!-- 右侧头像部分 -->
           <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
             <div class="relative">
               <div
                 class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl animate-float">
                 <img src="../assets/images/avatar.jpeg" alt="VenenoSix24" class="w-full h-full object-cover" />
               </div>
-              <!-- 装饰元素 -->
               <div class="absolute -top-4 -right-4 w-20 h-20 bg-kawaii-pink rounded-full opacity-30 animate-pulse">
               </div>
               <div class="absolute -bottom-2 -left-6 w-16 h-16 bg-kawaii-blue rounded-full opacity-30 animate-pulse">
@@ -45,7 +41,6 @@
       </div>
     </section>
 
-    <!-- 关于我部分 -->
     <section class="section bg-white">
       <div class="container mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -67,7 +62,6 @@
       </div>
     </section>
 
-    <!-- 精选项目部分 -->
     <section class="section bg-gray-50">
       <div class="container mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -101,7 +95,6 @@
       </div>
     </section>
 
-    <!-- 最新文章部分 -->
     <section class="section bg-white">
       <div class="container mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -132,7 +125,6 @@
       </div>
     </section>
 
-    <!-- 联系方式部分 -->
     <section class="section bg-gray-50">
       <div class="container mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -144,7 +136,6 @@
         </div>
 
         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- 联系方式卡片 -->
           <div class="card p-8" data-aos="fade-up">
             <h3 class="text-xl font-bold mb-6 text-gray-800">联系方式</h3>
             <ul class="space-y-4">
@@ -155,8 +146,8 @@
                 </div>
                 <div>
                   <p class="text-sm text-gray-500">邮箱</p>
-                  <a href="mailto:3405395460@qq.com" class="text-gray-800 hover:text-primary-500">
-                    3405395460@qq.com
+                  <a :href="'mailto:' + siteConfig.site.email" class="text-gray-800 hover:text-primary-500">
+                    {{ siteConfig.site.email }}
                   </a>
                 </div>
               </li>
@@ -167,15 +158,14 @@
                 </div>
                 <div>
                   <p class="text-sm text-gray-500">QQ</p>
-                  <a href="tencent://message/?uin=3405395460" class="text-gray-800 hover:text-primary-500">
-                    3405395460
+                  <a :href="'tencent://message/?uin=' + siteConfig.site.qq" class="text-gray-800 hover:text-primary-500">
+                    {{ siteConfig.site.qq }}
                   </a>
                 </div>
               </li>
             </ul>
           </div>
 
-          <!-- 社交媒体卡片 -->
           <div class="card p-8" data-aos="fade-up" data-aos-delay="100">
             <h3 class="text-xl font-bold mb-6 text-gray-800">社交媒体</h3>
             <div class="grid grid-cols-3 gap-4">

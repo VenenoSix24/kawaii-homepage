@@ -1,11 +1,11 @@
 <template>
   <div>
-    <section class="bg-gradient-to-r from-secondary-50 to-secondary-100 py-16 dark:bg-gradient-to-r dark:from-secondary-900/50 dark:to-secondary-800/50">
+    <section class="bg-gradient-to-tl from-secondary-100 via-pink-50 to-primary-100 py-16 dark:bg-gradient-to-tl dark:from-secondary-900/70 dark:via-gray-900 dark:to-primary-900/70">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl" data-aos="fade-up">文章</h1>
-        <div class="w-20 h-1 bg-secondary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+        <div class="w-20 h-1 bg-primary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
-          这里是我撰写的技术文章和心得分享。涵盖了前端开发、后端技术、学习笔记等多个方面。
+          这里是我撰写的技术文章和心得分享。涵盖了日常、学习笔记等多个方面。
         </p>
       </div>
     </section>
@@ -20,7 +20,8 @@
             @click="selectCategory(category)"
             class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 capitalize"
             :class="activeCategory === category
-              ? 'bg-secondary-500 text-white'
+              /* 1. 将主题色从 secondary (紫色) 更换为 primary (蓝色)，解决选中后样式问题 */
+              ? 'bg-primary-500 text-white' 
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'"
           >
             {{ category === 'all' ? '全部' : category }}
@@ -29,7 +30,7 @@
 
         <div class="max-w-md mx-auto relative">
           <input type="text" v-model="searchQuery"
-            class="w-full py-3 px-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+            class="w-full py-3 px-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             placeholder="搜索文章标题或摘要...">
           <button class="absolute right-3 top-3 text-gray-400">
             <i class="fas fa-search"></i>
@@ -39,9 +40,9 @@
       </div>
     </section>
 
-    <section class="section bg-gray-50 dark:bg-gray-900">
+    <section class="pt-12 pb-16 md:pb-24 bg-gray-50 dark:bg-gray-900">
       <div class="container mx-auto px-4">
-        <div v-if="tags.length > 0" class="max-w-4xl mx-auto mb-12 flex flex-wrap justify-center gap-3" data-aos="fade-up">
+        <div v-if="tags.length > 0" class="max-w-4xl mx-auto mb-8 flex flex-wrap justify-center gap-3" data-aos="fade-up">
             <span
                 v-for="tag in tags"
                 :key="tag"
@@ -57,7 +58,7 @@
 
         <div class="max-w-4xl mx-auto">
           <div v-if="loading" class="text-center py-16">
-            <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-secondary-500"></div>
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
             <p class="mt-4 text-gray-600 dark:text-gray-400">加载文章中...</p>
           </div>
 
@@ -78,7 +79,7 @@
                 </div>
 
                 <h2
-                  class="text-2xl md:text-3xl font-bold mb-4 text-gray-800 hover:text-secondary-600 transition-colors dark:text-gray-100 dark:hover:text-secondary-400">
+                  class="text-2xl md:text-3xl font-bold mb-4 text-gray-800 hover:text-primary-600 transition-colors dark:text-gray-100 dark:hover:text-primary-400">
                   <router-link :to="`/article/${article.id || article.slug}`">
                     {{ article.title }}
                   </router-link>
@@ -89,13 +90,13 @@
                 <div class="flex justify-between items-center">
                   <div class="flex flex-wrap gap-2">
                     <span v-for="tag in article.tags" :key="tag"
-                      class="px-2 py-1 bg-secondary-50 text-secondary-600 text-xs rounded dark:bg-secondary-900/50 dark:text-secondary-300">
+                      class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded dark:bg-primary-900/50 dark:text-primary-300">
                       {{ tag }}
                     </span>
                   </div>
 
                   <router-link :to="`/article/${article.id || article.slug}`"
-                    class="btn btn-outline border-secondary-500 text-secondary-500 hover:bg-secondary-500 dark:border-secondary-400 dark:text-secondary-400 dark:hover:bg-secondary-500 px-4 py-2">
+                    class="btn btn-outline border-primary-500 text-primary-500 hover:bg-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-500 px-4 py-2">
                     阅读全文
                   </router-link>
                 </div>
