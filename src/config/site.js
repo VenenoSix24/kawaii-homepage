@@ -36,7 +36,7 @@ const siteConfig = {
 
   // 社交媒体链接
   socialLinks: [
-    { name: "博客", url: "https://blog.776624.xyz", icon: "fas fa-blog" },
+    { name: "博客", url: "https://blog.ivyris.top/", icon: "fas fa-blog" },
     { name: "哔哩哔哩", url: "https://space.bilibili.com/294041003", icon: "fab fa-bilibili" },
     { name: "微博", url: "https://weibo.com/u/6582794675", icon: "fab fa-weibo" },
     { name: "GitHub", url: "https://github.com/VenenoSix24", icon: "fab fa-github" },
