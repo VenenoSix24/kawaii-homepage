@@ -95,7 +95,7 @@
               <div class="md:w-64 h-48 md:h-auto bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700 relative overflow-hidden flex-shrink-0">
                  <!-- 封面图片 -->
                  <img 
-                   :src="article.cover || '/src/assets/images/kawaii/scene1.avif'" 
+                   :src="article.cover || defaultCover" 
                    :alt="article.title"
                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                  />
@@ -174,15 +174,9 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { 
-  MagnifyingGlassIcon, 
-  CalendarIcon, 
-  FolderIcon, 
-  ArrowRightIcon, 
-  DocumentMagnifyingGlassIcon,
-  DocumentTextIcon
-} from '@heroicons/vue/24/outline';
+import { DocumentMagnifyingGlassIcon, DocumentTextIcon, ArrowRightIcon, CalendarIcon, MagnifyingGlassIcon } from '@heroicons/vue/24/outline';
 import { getArticleList, formatDate } from '../utils/markdown';
+import defaultCover from '@/assets/images/kawaii/scene1.avif';
 
 // --- 状态 ---
 const searchQuery = ref('');

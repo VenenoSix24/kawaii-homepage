@@ -220,7 +220,7 @@
                <div class="h-64 rounded-2xl bg-gray-100 overflow-hidden relative mb-6">
                   <!-- 封面图片 -->
                   <img 
-                    :src="article.cover || '/src/assets/images/kawaii/scene1.avif'" 
+                    :src="article.cover || defaultCover" 
                     :alt="article.title"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
@@ -308,6 +308,7 @@ import {
 import { HeartIcon as HeartIconSolid } from '@heroicons/vue/24/solid';
 
 import siteConfig from '../config/site';
+import defaultCover from '@/assets/images/kawaii/scene1.avif';
 
 const featuredProjects = siteConfig.featuredProjects;
 const latestArticles = siteConfig.latestArticles;
