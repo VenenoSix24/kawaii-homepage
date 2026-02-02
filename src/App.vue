@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-gray-50 text-gray-800" :class="{ 'kawaii-theme': isKawaiiPage }">
+  <div class="min-h-screen flex flex-col bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-pink-50/50 text-gray-800 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 dark:text-gray-100 transition-colors duration-300" :class="{ 'kawaii-theme': isKawaiiPage }">
     <Navbar />
     <main class="flex-grow">
       <router-view v-slot="{ Component }">
@@ -55,42 +55,5 @@ export default {
 .page-leave-to {
   opacity: 0;
   transform: translateY(-20px);
-}
-
-/* 总之就是非常可爱页面特殊样式 */
-.kawaii-theme header {
-  background: white;
-  border-bottom: 1px solid rgba(255, 183, 197, 0.2);
-}
-
-.kawaii-theme footer {
-  background: linear-gradient(to right, rgba(255, 183, 197, 0.9), rgba(216, 174, 242, 0.9));
-  color: white;
-}
-
-.kawaii-theme footer h3 {
-  color: white;
-}
-
-.kawaii-theme footer a,
-.kawaii-theme footer .text-gray-300 {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.kawaii-theme footer a:hover {
-  color: white;
-}
-
-.kawaii-theme footer .social-icon {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.kawaii-theme footer .social-icon:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.kawaii-theme footer .border-gray-800 {
-  border-color: rgba(255, 255, 255, 0.2);
 }
 </style>
