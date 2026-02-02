@@ -3,12 +3,10 @@ title: Vue3 Composition API完全指南
 date: 2025-07-15
 author: VenenoSix24
 category: 前端开发
-tags: ["Vue3", "JavaScript", "Composition API"]
+tags: ["JavaScript", "Composition API"]
 cover: https://vuejs.org/images/components.png
 summary: 本文深入探讨Vue3的Composition API，从基础概念到高级应用，帮助你全面掌握这一强大特性。
 ---
-
-# Vue3 Composition API 完全指南
 
 ## 引言
 

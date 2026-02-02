@@ -2,107 +2,125 @@
 @tailwind components;
 @tailwind utilities;
 
+/* -------------------------------------------------------------------------- */
+/*                                 基础样式                                */
+/* -------------------------------------------------------------------------- */
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-gray-50 text-gray-800 font-sans;
+    @apply font-sans text-gray-700 bg-gray-50 selection:bg-primary-200 selection:text-primary-900;
   }
 
-  /* --- 修改点 1：强化字体对比 --- */
+  /* 标题样式 */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    /* 使用更深的灰色，并增加一点字间距，让标题更醒目 */
-    @apply font-serif font-bold text-gray-900 tracking-wide;
+    @apply font-sans tracking-tight;
   }
 }
 
-@layer components {
-  .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
-  }
+/* -------------------------------------------------------------------------- */
+/*                            自定义滚动条                                */
+/* -------------------------------------------------------------------------- */
 
-  .btn-primary {
-    @apply bg-primary-500 text-white hover:bg-primary-600;
-  }
-
-  .btn-secondary {
-    @apply bg-secondary-500 text-white hover:bg-secondary-600;
-  }
-
-  .btn-outline {
-    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
-  }
-
-  /* 总之就是非常可爱按钮样式 */
-  .kawaii-btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300;
-    background: linear-gradient(to right, #ffb7c5, #d8aef2);
-    color: #fff;
-    border: 2px solid #fff;
-    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.5);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    transform: translateY(0);
-  }
-
-  .kawaii-btn:hover {
-    background: linear-gradient(to right, #ff9eb2, #c89ce0);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(255, 183, 197, 0.6);
-  }
-
-  .kawaii-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(255, 183, 197, 0.4);
-  }
-
-  /* --- 修改点 2：丰富悬停效果 --- */
-  .card {
-    /* 增加了 hover:shadow-xl 和 hover:-translate-y-1 来实现上浮效果 */
-    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
-  }
-
-  .section {
-    @apply py-16 md:py-24;
-  }
-
-  .container {
-    @apply px-4 mx-auto max-w-7xl;
-  }
-
-  .nav-link {
-    @apply px-4 py-2 text-gray-600 hover:text-primary-500 transition-colors duration-300;
-  }
-
-  .nav-link-active {
-    @apply text-primary-500 font-medium;
-  }
-
-  .social-icon {
-    @apply w-10 h-10 flex items-center justify-center rounded-full text-gray-600 hover:text-primary-500 hover:bg-primary-50 transition-all duration-300;
-  }
-}
-
-/* 自定义滚动条 */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c5c5c5;
-  border-radius: 4px;
+  @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 hover:bg-gray-600;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                工具类                                   */
+/* -------------------------------------------------------------------------- */
+
+/* 动画延迟 (Tailwind 默认不包含) */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* 玻璃拟态效果 */
+.glass {
+  @apply bg-white/70 backdrop-blur-lg border border-white/50 shadow-sm;
+}
+
+.dark .glass {
+  @apply bg-gray-800/70 border-gray-700;
+}
+
+/* 按钮与区块工具类 (已还原) */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-600 border border-primary-100 hover:bg-primary-50;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white bg-transparent;
+  }
+
+  .section {
+    @apply py-20 md:py-32 relative;
+  }
+}
+
+/* 隐藏滚动条工具类 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* 渐变动画 */
+@keyframes gradient-x {
+
+  0%,
+  100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
 }

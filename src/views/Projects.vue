@@ -1,72 +1,106 @@
 <template>
-  <div>
-    <section class="bg-gradient-to-br from-primary-100 to-secondary-100 py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl" data-aos="fade-up">作品集</h1>
-        <div class="w-20 h-1 bg-primary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-          {{ pageDescription }}
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- 头部区域 -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-primary-300/20 rounded-full blur-2xl animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-40 h-40 bg-kawaii-pink/20 rounded-full blur-2xl animate-pulse animation-delay-2000"></div>
+      </div>
+
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-kawaii-purple">作品集</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto dark:text-gray-300" data-aos="fade-up" data-aos-delay="100">
+           {{ pageDescription }}
         </p>
       </div>
     </section>
 
-    <section class="section bg-gray-50">
+    <section class="pb-24">
       <div class="container mx-auto px-4">
         
-        <div v-if="loading" class="text-center py-16">
-          <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
-          <p class="mt-4 text-gray-600">正在同步项目...</p>
+        <!-- 加载状态 -->
+        <div v-if="loading" class="flex flex-col items-center justify-center py-20">
+          <div class="relative w-16 h-16">
+            <div class="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-primary-500 rounded-full border-t-transparent animate-spin"></div>
+          </div>
+          <p class="mt-6 text-gray-500 font-medium">正在同步 GitHub 仓库...</p>
         </div>
 
-        <div v-else-if="error" class="text-center py-16">
-          <i class="fas fa-exclamation-triangle text-5xl text-red-400 mb-4"></i>
-          <p class="text-xl text-gray-500">项目加载失败</p>
-          <p class="text-gray-400 mt-2">{{ error }}</p>
+        <!-- 错误状态 -->
+        <div v-else-if="error" class="text-center py-20 bg-white rounded-3xl shadow-sm border border-red-100 max-w-2xl mx-auto dark:bg-gray-800 dark:border-red-900/30" data-aos="zoom-in">
+          <ExclamationTriangleIcon class="w-16 h-16 text-red-400 mx-auto mb-4" />
+          <h3 class="text-xl font-bold text-gray-800 mb-2 dark:text-white">加载失败</h3>
+          <p class="text-gray-500 mb-6">{{ error }}</p>
+          <button @click="fetchProjects" class="px-6 py-2 bg-red-50 text-red-600 rounded-full font-medium hover:bg-red-100 transition-colors dark:bg-red-900/20 dark:text-red-400">
+            重试
+          </button>
         </div>
         
+        <!-- 项目列表 -->
         <div v-else-if="allProjects.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
-          <div v-for="(project, index) in allProjects" :key="project.name" class="card group relative" data-aos="fade-up" :data-aos-delay="(index % 3) * 100">
-            <div class="p-6 flex flex-col h-full">
-              <div class="flex justify-between items-start mb-4">
-                <div class="flex-grow">
-                  <h3 class="text-xl font-bold text-gray-800 pr-4">
-                    <i :class="project.isPinned ? 'fa-solid fa-thumbtack' : 'fa-brands fa-github'" class="mr-2 text-primary-500" :title="project.isPinned ? 'GitHub Pinned Project' : 'GitHub Project'"></i>
-                    {{ project.name }}
-                  </h3>
+          <div v-for="(project, index) in allProjects" :key="project.name" 
+            class="group bg-white rounded-3xl p-1 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 dark:bg-gray-800"
+            data-aos="fade-up" :data-aos-delay="(index % 3) * 100">
+            <div class="bg-white rounded-[20px] p-7 h-full flex flex-col border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+              <!-- 头部：图标与名称 -->
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                   <div class="w-10 h-10 rounded-xl flex items-center justify-center" 
+                    :class="project.isPinned ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20' : 'bg-gray-50 text-gray-600 dark:bg-gray-700/50 dark:text-gray-400'">
+                     <BookmarkIcon v-if="project.isPinned" class="w-5 h-5" />
+                     <CommandLineIcon v-else class="w-5 h-5" />
+                   </div>
+                   <h3 class="text-lg font-bold text-gray-900 line-clamp-1 dark:text-white" :title="project.name">{{ project.name }}</h3>
                 </div>
-                <div class="flex-shrink-0 flex items-center gap-4">
-                  <span v-if="project.stars > 0" class="flex items-center text-sm text-yellow-500">
-                    <i class="fas fa-star mr-1"></i>
+                
+                <div class="flex items-center gap-2">
+                  <span v-if="project.stars > 0" class="flex items-center px-2 py-1 rounded-lg bg-yellow-50 text-yellow-600 text-xs font-bold dark:bg-yellow-900/20 dark:text-yellow-500">
+                    <StarIcon class="w-3 h-3 mr-1" />
                     {{ project.stars }}
                   </span>
-                  <a v-if="project.demoUrl" :href="project.demoUrl" @click.stop target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-500 transition-colors" title="Live Demo">
-                    <i class="fas fa-globe"></i>
-                  </a>
                 </div>
               </div>
 
-              <p class="text-gray-600 mb-6 h-24 overflow-hidden flex-grow">{{ project.description }}</p>
+              <!-- 描述 -->
+              <p class="text-gray-600 text-sm leading-relaxed mb-6 h-[4.5rem] line-clamp-3 dark:text-gray-400">
+                {{ project.description || '暂无描述' }}
+              </p>
               
-              <div class="flex-shrink-0 mt-auto flex items-center justify-between text-xs text-gray-400">
-                <div class="flex items-center gap-2">
+              <!-- 底部信息 -->
+              <div class="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between dark:border-gray-700/50">
+                <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                   <template v-if="project.language">
-                      <span class="w-3 h-3 rounded-full" :style="{ backgroundColor: project.language.color }"></span>
+                      <span class="w-2.5 h-2.5 rounded-full" :style="{ backgroundColor: project.language.color }"></span>
                       <span>{{ project.language.name }}</span>
                   </template>
                 </div>
-                <span v-if="project.updatedAt">Updated {{ formatRelativeTime(project.updatedAt) }}</span>
+
+                <div class="flex items-center gap-3">
+                   <a v-if="project.demoUrl" :href="project.demoUrl" target="_blank" class="p-2 rounded-lg text-gray-400 hover:bg-primary-50 hover:text-primary-600 transition-colors dark:hover:bg-primary-900/20">
+                     <GlobeAltIcon class="w-5 h-5" />
+                   </a>
+                   <a :href="project.githubUrl" target="_blank" class="p-2 rounded-lg text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-colors dark:hover:bg-gray-700 dark:hover:text-white">
+                     <i class="fab fa-github text-lg"></i>
+                   </a>
+                </div>
               </div>
             </div>
-            <a :href="project.githubUrl" target="_blank" rel="noopener noreferrer" class="absolute inset-0" aria-label="View project on GitHub"></a>
           </div>
 
         </div>
 
-        <div v-else class="text-center py-16">
-            <i class="fas fa-box-open text-5xl text-gray-300 mb-4"></i>
-            <p class="text-xl text-gray-500">暂无项目</p>
-         </div>
+        <!-- 空状态 -->
+        <div v-else class="text-center py-20">
+           <div class="w-32 h-32 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 dark:bg-gray-800">
+             <inbox-icon class="w-16 h-16 text-gray-300" />
+           </div>
+           <h3 class="text-xl font-bold text-gray-400">暂无项目</h3>
+           <p class="text-gray-400 mt-2">GitHub 上似乎没有公开的项目。</p>
+        </div>
       </div>
     </section>
   </div>
@@ -74,11 +108,11 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
+import { StarIcon, BookmarkIcon, CommandLineIcon, GlobeAltIcon, ExclamationTriangleIcon, InboxIcon } from '@heroicons/vue/24/outline';
 import siteConfig from '../config/site.js';
 
 // --- 配置区 ---
 const { mode, customProjects } = siteConfig.projectsPage;
-// 修正点：将 site-config 修改为 siteConfig
 const GITHUB_USERNAME = siteConfig.site.githubUsername;
 const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
@@ -91,7 +125,7 @@ const error = ref(null);
 const pageDescription = computed(() => {
     return mode === 'custom'
         ? '这里是我精心挑选的代表性项目。'
-        : '这里自动同步展示了我在 GitHub 上固定的项目，并补充了一些其他作品。';
+        : '这里自动同步展示了我在 GitHub 上固定的项目，以及其他精选作品。';
 });
 
 // --- GraphQL 查询 ---
@@ -106,6 +140,9 @@ async function fetchProjects() {
     return;
   }
   
+  loading.value = true;
+  error.value = null;
+
   try {
     let fetchedProjects = [];
 
@@ -158,32 +195,26 @@ async function apiCall(query) {
 }
 
 async function fetchPinnedRepos() {
-    const data = await apiCall(pinnedQuery);
-    return data.user.pinnedItems.nodes.map(repo => ({ ...repo, isPinned: true }));
+    try {
+      const data = await apiCall(pinnedQuery);
+      return data.user.pinnedItems.nodes.map(repo => ({ ...repo, isPinned: true }));
+    } catch (e) {
+      console.warn("获取 Pinned 项目失败，可能用户未固定项目。", e);
+      return [];
+    }
 }
 
 async function fetchSingleRepo(repoFullName) {
     if (!repoFullName) return null;
     const [owner, name] = repoFullName.split('/');
     if (!owner || !name) return null;
-    const data = await apiCall(repoQuery(owner, name));
-    return data.repository;
-}
-
-// --- 辅助函数 ---
-function formatRelativeTime(dateString) {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffSeconds = Math.round((now.getTime() - date.getTime()) / 1000);
-    const diffMinutes = Math.round(diffSeconds / 60);
-    const diffHours = Math.round(diffMinutes / 60);
-    const diffDays = Math.round(diffHours / 24);
-
-    if (diffSeconds < 60) return `just now`;
-    if (diffMinutes < 60) return `${diffMinutes} minutes ago`;
-    if (diffHours < 24) return `${diffHours} hours ago`;
-    if (diffDays < 7) return `${diffDays} days ago`;
-    return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+    try {
+        const data = await apiCall(repoQuery(owner, name));
+        return data.repository;
+    } catch (e) {
+        console.warn(`获取项目 ${repoFullName} 失败`, e);
+        return null;
+    }
 }
 
 onMounted(fetchProjects);

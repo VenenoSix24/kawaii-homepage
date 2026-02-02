@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.agent/
+.history/
 
 # Editor directories and files
 .vscode/*
@@ -118,3 +120,4 @@ $RECYCLE.BIN/
 
 #Others
 .history/
+pnpm-lock.yaml

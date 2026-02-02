@@ -1,6 +1,6 @@
 ---
 title: 总之就是非常可爱——个人网站/主页/博客
-date: 2025-08-12
+date: 2026-02-02
 author: VenenoSix24
 category: 日常
 tags: ["Vue3", "Homepage", "Github"]
@@ -8,9 +8,12 @@ cover: https://vuejs.org/images/components.png
 summary: 本文介绍了个人网页项目。
 ---
 
-# 总之就是非常可爱——个人网站/主页/博客
+> [!IMPORTANT]  
+>
+> 注意！**2.0版本**界面进行了**重构**，如果喜欢1.0版本请切换到[**1.0分支**](https://github.com/VenenoSix24/kawaii-homepage/tree/1.0)！
 
 <div align="center">
+
 
 <p align="center">
 <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue.js"></a>
@@ -19,52 +22,62 @@ summary: 本文介绍了个人网页项目。
 <a href="https://marked.js.org/"><img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown"></a>
 </p>
 
-一个美观、响应式的个人网站/主页/博客，基于 Vue3、Tailwind CSS 和 Vite 构建，融入动漫《总之就是非常可爱》元素。
 
-[🚀 Demo](https://kawaii.ivyris.top/) | [📖 文档](https://github.com/VenenoSix24/kawaii-homepage/blob/main/README.md) | [🐛 问题反馈](https://github.com/VenenoSix24/kawaii-homepage/issues)
+一个美观、响应式的个人网站/主页/博客，基于Vue3、Tailwind CSS和Vite构建，融入动漫《总之就是非常可爱》元素。
+
+[🚀 Demo 2.0](https://kawaii.ivyris.top/) | [📖 文档](https://github.com/VenenoSix24/kawaii-homepage/blob/main/README.md) | [🐛 问题反馈](https://github.com/VenenoSix24/kawaii-homepage/issues)
+
+**Ver 2.0：[预览](https://kawaii.ivyris.top/)**
+
+![kawaii2.0-p1.png](https://s2.loli.net/2026/02/02/iSQr9loRjFJpw8h.png)
+
+
+
+**Ver1.0：[预览](https://6aig.cn/)**
 
 ![网站预览](https://s2.loli.net/2025/05/17/usnaUKvDZ8k93FX.jpg)
 
 </div>
 
-## ✨ 功能特点
-
-- 🌈 **响应式设计** - 完美适配桌面端、平板和移动设备
-- 📊 **GitHub 项目自动同步** - 自动抓取并展示您 GitHub 上固定的(Pinned)仓库
-- 📝 **自动化文章管理** - 无需手动配置，文章即加即用
-- 🚀 **交互式文章创建** - 通过 `npm run new` 命令轻松创建新文章
-- 🔍 **文章分类与标签过滤** - 在文章列表页提供内容筛选功能
-- 💅 **优美的排版与交互** - 集成 `@tailwindcss/typography` 插件并优化了 UI 细节
-- 🎭 **动漫主题页面** - 为《总之就是非常可爱》设计的主题页面
-- 🏃‍♂️ **流畅动画** - 平滑的页面过渡和滚动动画
+- 🌸 **Kawaii 风格设计** - 采用柔和的马卡龙色系和圆角卡片，打造温馨治愈的视觉体验
+- 🏃‍♂️ **流畅动画** - 集成 AOS 滚动动画、Blob 背景动画及平滑的微交互反馈
+- 🌙 **深色模式** - 完美适配日间/夜间模式，提供舒适的阅读体验
+- 📱 **完全响应式** - 精心优化的布局，完美适配移动端、平板和桌面端
 - 📈 **打包分析** - 集成 `rollup-plugin-visualizer` 以分析构建产物
-- ~~🌙 **深色/浅色模式** - 支持主题切换，保护您的眼睛~~
-- ~~💬 **联系表单** - 方便访客与您取得联系~~
+
+## 🚀 v2.0 升级亮点
+
+### 🎨 界面深度重构
+
+- **全新沉浸式视觉**：引入全新 Hero 布局、动态弥散光背景与微交互装饰，视觉体验更佳。
+- **Glassmorphism UI** - 导航栏、底部和卡片均采用现代化的毛玻璃特效
+- **美学布局升级**：关于我、精选作品与文章列表均重构为更具设计感的非对称式与模块化布局。
+- **全站风格统一**：重塑了毛玻璃特效，并统一了默认封面图与视觉遮罩逻辑。
 
 ## 🛠️ 技术栈
 
-- **前端框架**: [Vue 3](https://v3.vuejs.org/) (Composition API)
+- **前端框架**: [Vue 3](https://v3.vuejs.org/) 
 - **路由管理**: [Vue Router 4](https://router.vuejs.org/)
-- **CSS 框架**: [Tailwind CSS](https://tailwindcss.com/)
+- **CSS框架**: [Tailwind CSS](https://tailwindcss.com/)
 - **排版**: [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)
 - **构建工具**: [Vite](https://vitejs.dev/)
 - **打包分析**: [rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer)
 - **图标库**: [Font Awesome](https://fontawesome.com/)
 - **动画库**: [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
-- **Markdown 解析**: [Marked](https://marked.js.org/)
+- **Markdown解析**: [Marked](https://marked.js.org/)
 
 ## 📦 安装与使用
 
 ### 前提条件
 
-- Node.js (v16.0.0 或更高版本)
+- Node.js (v16.0.0或更高版本)
 - npm 或 yarn
 
 ### 克隆和安装
 
 ```bash
 # 克隆仓库
-git clone [https://github.com/VenenoSix24/kawaii-homepage.git](https://github.com/VenenoSix24/kawaii-homepage.git)
+git clone https://github.com/VenenoSix24/kawaii-homepage.git
 cd kawaii-homepage
 
 # 安装依赖
@@ -74,8 +87,6 @@ npm install
 在开始开发前，请务必先完成下面的 **“配置 GitHub 项目自动同步”** 步骤。
 
 ### 本地开发
-
-**Bash**
 
 ```bash
 npm run dev
@@ -129,14 +140,15 @@ npm run build
 
 **a. 创建 GitHub 个人访问令牌 (PAT)**
 
-- 前往 GitHub 的 `Settings` > `Developer settings` > `Personal access tokens` > `Tokens (classic)`。
-- 生成一个新令牌，**权限 (scopes) 只勾选 `public_repo`** 即可。
-- **请务必复制并妥善保管生成的令牌** ，因为它只会出现一次。
+* 前往 GitHub 的 `Settings` > `Developer settings` > `Personal access tokens` > `Tokens (classic)`。
+* 生成一个新令牌，**权限 (scopes) 只勾选 `public_repo`** 即可。
+* **请务必复制并妥善保管生成的令牌** ，因为它只会出现一次。
 
 **b. 创建本地环境变量文件**
 
-- 在项目根目录下，创建一个名为 `.env.local` 的文件。
-- 在文件中添加以下内容，并填入你的信息：
+* 在项目根目录下，创建一个名为 `.env.local` 的文件。
+
+* 在文件中添加以下内容，并填入你的信息：
   **代码段**
 
   ```
@@ -145,16 +157,36 @@ npm run build
   VITE_GITHUB_TOKEN="粘贴你刚刚生成的ghp_开头的令牌"
   ```
 
-- `.env.local` 文件已被添加到 `.gitignore`，不会被上传到代码仓库，保证了令牌的安全。
+* `.env.local` 文件已被添加到 `.gitignore`，不会被上传到代码仓库，保证了令牌的安全。
 
 **c. 配置 `site.js`**
 
-- 打开 `src/config/site.js` 文件，找到 `site` 对象，并确保 `githubUsername` 字段已正确填写你的 GitHub 用户名。
-- 如果没有 `src/config/site.js` 文件，请将 `src/config/site.example.js` 重命名为 `site.js` 。
+* 打开 `src/config/site.js` 文件，找到 `site` 对象，并确保 `githubUsername` 字段已正确填写你的 GitHub 用户名。
+* 如果没有 `src/config/site.js` 文件，请将 `src/config/site.example.js` 重命名为 `site.js` 。
 
 完成以上步骤并重启开发服务器后，你的作品集页面就会自动显示你的 GitHub Pinned 项目了。
 
-### 2. 添加和管理文章
+### 2. 作品集页面配置
+
+在 `src/config/site.js` 中找到 `projectsPage` 进行修改
+
+**两种模式：**
+
+*  `hybrid` : 显示 GitHub Pinned 项目 + 下方的自定义项目列表
+*  `custom` : 只显示下方自定义项目列表中的项目
+
+**自定义项目列表：**
+
+```
+customProjects: [
+  { repo: "VenenoSix24/kawaii-homepage" },
+  { repo: "XXXXXXXX/xxxxxx" },
+  // 您可以在这里添加任何想补充的公开仓库
+  // 格式为: "作者名/仓库名"
+]
+```
+
+### 3. 添加和管理文章
 
 流程已完全自动化：
 
@@ -163,22 +195,22 @@ npm run build
 
 网站会自动发现并展示你的新文章，无需任何额外配置。
 
-### 3. 修改网站其他信息
+### 4. 修改网站其他信息
 
 大部分网站内容都可以在中央配置文件 `src/config/site.js` 中管理，包括：
 
-- 网站标题、作者、联系方式等
-- 社交媒体链接
-- 导航菜单项
-- **首页展示的精选项目** (注意：这里是手动配置的，与作品集页面的自动同步不同)
-- 《总之就是非常可爱》页面的所有内容
+* 网站标题、作者、联系方式等
+* 社交媒体链接
+* 导航菜单项
+* **首页展示的精选项目** (注意：这里是手动配置的，与作品集页面的自动同步不同)
+* 《总之就是非常可爱》页面的所有内容
 
-### 4. 修改主题颜色与字体
+### 5. 修改主题颜色与字体
 
 所有设计系统的核心定义都在 `tailwind.config.js` 文件中。你可以在此文件中：
 
-- 修改 `theme.extend.colors` 中的 `primary`, `secondary` 等颜色值。
-- 修改 `theme.extend.fontFamily` 来更换网站的全局字体。
+* 修改 `theme.extend.colors` 中的 `primary`, `secondary` 等颜色值。
+* 修改 `theme.extend.fontFamily` 来更换网站的全局字体。
 
 ## 🚀 部署指南
 
@@ -189,6 +221,44 @@ npm run build
 1. 运行 `npm run build` 构建项目。
 2. 将生成的 `dist` 目录上传到您的托管平台。
 3. 确保您的服务器配置能正确处理单页应用（SPA）的路由，通常需要将所有未匹配的路径重定向到 `index.html`。
+
+#### 自行部署服务器配置（URL 重写规则）
+
+若您将 `dist` 目录部署到自己的 Nginx 或 Apache 服务器，为确保 Vue Router 的 `history` 模式能正常工作（即在任意页面刷新时不会 404），您需要添加 URL 重写规则。
+
+**对于 Vercel 等托管平台:**
+
+项目根目录已内置 `vercel.json` ，直接部署即可，其他托管平台请自行参考。
+
+**对于 Nginx:**
+
+在您的站点配置文件中，向 `location /` 块添加 `try_files` 指令：
+
+```nginx
+server {
+    # ... 其他配置 ...
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+```
+
+修改配置后，请重新加载 Nginx 服务。
+
+**对于 Apache:**
+
+在 `dist` 目录中（与 `index.html` 同级）创建一个名为 `.htaccess` 的文件，并添加以下内容：
+
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
 
 #### **通过 Vercel 手动部署**
 
@@ -211,12 +281,13 @@ npm run build
 
 ## 🙏 鸣谢
 
-- [Vue.js 团队](https://vuejs.org/)
-- [Tailwind CSS 团队](https://tailwindcss.com/)
-- [开源社区](https://github.com/)
+* [Vue.js团队](https://vuejs.org/)
+* [Tailwind CSS团队](https://tailwindcss.com/)
+* [开源社区](https://github.com/)
 
 ---
 
 <div align="center">
 Made with ❤️ by <a href="https://github.com/VenenoSix24">VenenoSix24</a>
 </div>
+
